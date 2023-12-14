@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "USAA Full Transaction Exporter",
+    "description": "Exports all information for each transaction when exporting transaction information from USAA",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon_16.png"
+    },
+    "icons": {
+        "16": "icon_16.png",
+        "48": "icon_48.png",
+        "128": "icon_128.png" 
+    },
+    "web_accessible_resources": [{
+        "resources": ["inject.js"],
+        "matches": ["https://*.usaa.com/*"]
+    }],
+    "content_scripts": [{
+        "matches": ["https://*.usaa.com/*"],
+        "run_at": "document_start",
+        "js": ["contentscript.js"]
+    }],
+    "permissions": [
+        "tabs"
+    ]
+}
